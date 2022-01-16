@@ -11,10 +11,11 @@ const App = () => {
     const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
     const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
     // модалки для карточки затрат
+    const [addExpenseModalCurrentId, setAddExpenseModalCurrentId] = useState("");
     const [viewExpenseModalCurrentId, setViewExpenseModalCurrentId] = useState("");
     const openExpenseModal = (currentId: string) => {
         setShowAddExpenseModal(true);
-        console.log(currentId);
+        setAddExpenseModalCurrentId(currentId);
     };
 
     // использование контекста
@@ -53,7 +54,11 @@ const App = () => {
                 </div>
             </Container>
             <AddBudgetModal show={showAddBudgetModal} handleClose={() => setShowAddBudgetModal(false)} />
-            <AddExpenseModal show={showAddExpenseModal} handleClose={() => setShowAddExpenseModal(false)} />
+            <AddExpenseModal
+                show={showAddExpenseModal}
+                handleClose={() => setShowAddExpenseModal(false)}
+                defaultCurrentId={addExpenseModalCurrentId}
+            />
             <ViewExpenseModal
                 currentId={viewExpenseModalCurrentId}
                 handleClose={() => setViewExpenseModalCurrentId("")}

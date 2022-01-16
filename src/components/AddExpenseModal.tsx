@@ -1,26 +1,63 @@
+import { useRef } from "react";
+
+import { useAppContext } from "../hooks/useAppContext";
+
 import { Modal, Form, Button } from "react-bootstrap";
+
+import { DEFAULT_ID } from "../utils/utils";
+
 import { AddModalProps } from "../types/types";
 
-const AddExpenseModal = ({ show, handleClose }: AddModalProps) => {
+interface AddExpenseModalProps extends AddModalProps {
+    defaultCurrentId: string;
+}
+
+const AddExpenseModal = ({ show, handleClose, defaultCurrentId }: AddExpenseModalProps) => {
+    //
+    const { budgets, setExpense } = useAppContext();
+
+    // refs
+    const desctiptionRef = useRef<HTMLInputElement>({} as HTMLInputElement);
+    const amountRef = useRef<HTMLInputElement>({} as HTMLInputElement);
+    const currentIdRef = useRef<HTMLSelectElement>({} as HTMLSelectElement);
+
+    const handleSubmit = (element: React.FormEvent<HTMLFormElement>) => {
+        element.preventDefault();
+        setExpense({
+            description: desctiptionRef.current.value,
+            amount: parseFloat(amountRef.current.value),
+            currentId: currentIdRef.current.value,
+        });
+        handleClose();
+    };
+
     return (
         <Modal show={show} onHide={handleClose}>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Modal.Header closeButton>
                     <Modal.Title>Траты</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Описание</Form.Label>
-                        <Form.Control type="text" required />
+                        <Form.Control ref={desctiptionRef} type="text" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="amount">
                         <Form.Label>Количество</Form.Label>
-                        <Form.Control type="text" required />
+                        <Form.Control ref={amountRef} type="text" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="currentId">
                         <Form.Label>Выбрать вид затрат</Form.Label>
-                        <Form.Select>
-                            <option>По умолчанию</option>
+                        <Form.Select defaultValue={defaultCurrentId} ref={currentIdRef}>
+                            <option>{DEFAULT_ID}</option>
+                            {budgets.map((budget) => {
+                                const { id, name } = budget;
+                                return (
+                                    <option key={id} value={id}>
+                                        {name}
+                                    </option>
+                                );
+                            })}
                         </Form.Select>
                     </Form.Group>
                     <div className="d-flex justify-content-end">

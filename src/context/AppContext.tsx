@@ -24,6 +24,7 @@ interface AppContextTypes {
     budgets: BudgetTypes[];
     getExpense: (currentId: string) => BudgetTypes[];
     setExpense: ({ description, amount, currentId }: ExpenseTypes) => void;
+    addBudget: ({ name, max }: { name: string; max: number }) => void;
 }
 
 export const AppContext = createContext<AppContextTypes>({} as AppContextTypes);
@@ -44,5 +45,19 @@ export const AppProvider = ({ children }: AppProviderProps) => {
         });
     };
 
-    return <AppContext.Provider value={{ budgets, expenses, getExpense, setExpense }}>{children}</AppContext.Provider>;
+    //создать новый карточку трат
+    const addBudget = ({ name, max }: { name: string; max: number }) => {
+        setBudgets((prevBudgets: BudgetTypes[]) => {
+            if (prevBudgets.find((budget: BudgetTypes) => budget.name === name)) {
+                return prevBudgets;
+            }
+            return [...prevBudgets, { id: getRandomId(), name, max }];
+        });
+    };
+
+    return (
+        <AppContext.Provider value={{ budgets, expenses, getExpense, setExpense, addBudget }}>
+            {children}
+        </AppContext.Provider>
+    );
 };
