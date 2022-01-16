@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BudgetCard, AddBudgetModal, AddExpenseModal, ViewExpenseModal } from "./components";
+import { useAppContext } from "./hooks/useAppContext";
 
 import { Container, Stack, Button } from "react-bootstrap";
 
@@ -16,6 +17,9 @@ const App = () => {
         console.log(currentId);
     };
 
+    // использование контекста
+    const { budgets, getExpense } = useAppContext();
+
     return (
         <>
             <Container className="my-4">
@@ -29,18 +33,31 @@ const App = () => {
                     </Button>
                 </Stack>
                 <div className="app-content">
-                    <BudgetCard
-                        name={`Тест`}
-                        amount={450}
-                        max={1000}
-                        onAddExpenseClick={() => openExpenseModal("1")}
-                        onViewExpenseClick={() => setViewExpenseModalCurrentId("1")}
-                    />
+                    {budgets.map((budget) => {
+                        const { id, name, max } = budget;
+                        const amount = getExpense(id).reduce((acc, expense) => {
+                            if (expense.amount === undefined) return 0;
+                            return acc + expense.amount;
+                        }, 0);
+                        return (
+                            <BudgetCard
+                                key={id}
+                                name={name}
+                                amount={amount}
+                                max={max}
+                                onAddExpenseClick={() => openExpenseModal(id)}
+                                onViewExpenseClick={() => setViewExpenseModalCurrentId(id)}
+                            />
+                        );
+                    })}
                 </div>
             </Container>
             <AddBudgetModal show={showAddBudgetModal} handleClose={() => setShowAddBudgetModal(false)} />
             <AddExpenseModal show={showAddExpenseModal} handleClose={() => setShowAddExpenseModal(false)} />
-            <ViewExpenseModal currentId={viewExpenseModalCurrentId} handleClose={() => setViewExpenseModalCurrentId("")} />
+            <ViewExpenseModal
+                currentId={viewExpenseModalCurrentId}
+                handleClose={() => setViewExpenseModalCurrentId("")}
+            />
         </>
     );
 };
