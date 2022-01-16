@@ -13,7 +13,7 @@ interface AddExpenseModalProps extends AddModalProps {
 }
 
 const AddExpenseModal = ({ show, handleClose, defaultCurrentId }: AddExpenseModalProps) => {
-    //
+    // использование контекста
     const { budgets, setExpense } = useAppContext();
 
     // refs
@@ -25,7 +25,7 @@ const AddExpenseModal = ({ show, handleClose, defaultCurrentId }: AddExpenseModa
         element.preventDefault();
         setExpense({
             description: desctiptionRef.current.value,
-            amount: parseFloat(amountRef.current.value),
+            amount: parseInt(amountRef.current.value),
             currentId: currentIdRef.current.value,
         });
         handleClose();

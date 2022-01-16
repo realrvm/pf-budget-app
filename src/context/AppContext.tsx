@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 import { useLocaleStorage } from "../hooks/useLocaleStorage";
-import { getRandomId } from "../utils/utils";
+import { getRandomId, DEFAULT_ID } from "../utils/utils";
 
 type AppProviderProps = { children: React.ReactNode };
 
@@ -17,6 +17,7 @@ interface BudgetTypes {
     name: string;
     max: number;
     amount?: number;
+    description?: string;
 }
 
 interface AppContextTypes {
@@ -25,6 +26,8 @@ interface AppContextTypes {
     getExpense: (currentId: string) => BudgetTypes[];
     setExpense: ({ description, amount, currentId }: ExpenseTypes) => void;
     addBudget: ({ name, max }: { name: string; max: number }) => void;
+    deleteBudget: (id: string) => void;
+    deleteExpense: (id: string) => void;
 }
 
 export const AppContext = createContext<AppContextTypes>({} as AppContextTypes);
@@ -55,8 +58,30 @@ export const AppProvider = ({ children }: AppProviderProps) => {
         });
     };
 
+    // удалить
+    const deleteBudget = (id: string) => {
+        setExpenses((prevExpenses: ExpenseTypes[]) => {
+            return prevExpenses.map((expense) => {
+                if (expense.currentId === id) return expense;
+                return { ...expense, currentId: DEFAULT_ID };
+            });
+        });
+        setBudgets((prevBudgets: BudgetTypes[]) => {
+            return prevBudgets.filter((budget: BudgetTypes) => budget.id !== id);
+        });
+    };
+
+    // удалить
+    const deleteExpense = (id: string) => {
+        setExpenses((prevExpenses: ExpenseTypes[]) => {
+            return prevExpenses.filter((expense: ExpenseTypes) => expense.id !== id);
+        });
+    };
+
     return (
-        <AppContext.Provider value={{ budgets, expenses, getExpense, setExpense, addBudget }}>
+        <AppContext.Provider
+            value={{ budgets, expenses, getExpense, setExpense, addBudget, deleteBudget, deleteExpense }}
+        >
             {children}
         </AppContext.Provider>
     );
