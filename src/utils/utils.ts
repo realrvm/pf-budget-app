@@ -5,5 +5,5 @@ export const getRandomId = () => {
 export const formatToRoubles = Intl.NumberFormat("ru", {
     style: "currency",
     currency: "RUB",
-    minimumIntegerDigits: 0,
+    minimumFractionDigits: 0,
 });
