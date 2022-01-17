@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pf-budget-app/static/css/main.7ed0ec85.css",
+    "main.js": "/pf-budget-app/static/js/main.ea7ce565.js",
+    "index.html": "/pf-budget-app/index.html",
+    "main.7ed0ec85.css.map": "/pf-budget-app/static/css/main.7ed0ec85.css.map",
+    "main.ea7ce565.js.map": "/pf-budget-app/static/js/main.ea7ce565.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ed0ec85.css",
+    "static/js/main.ea7ce565.js"
+  ]
+}
