@@ -7,6 +7,7 @@ import {
     ViewExpenseModal,
     TotalBudgetCard,
     DefaultBudgetCard,
+    ConfirmationModal,
 } from "./components";
 
 import { useAppContext } from "./hooks/useAppContext";
@@ -21,6 +22,7 @@ const App = () => {
     // модалки для меню
     const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
     const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
+    const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     // модалки для карточки затрат
     const [addExpenseModalCurrentId, setAddExpenseModalCurrentId] = useState("");
     const [viewExpenseModalCurrentId, setViewExpenseModalCurrentId] = useState("");
@@ -47,6 +49,9 @@ const App = () => {
                     </Button>
                     <Button variant="outline-primary" onClick={() => setShowAddExpenseModal(true)}>
                         Расходы
+                    </Button>
+                    <Button variant="outline-danger" onClick={() => setShowConfirmationModal(true)}>
+                        Удалить всё
                     </Button>
                 </Stack>
                 <div className="app-content">
@@ -75,6 +80,7 @@ const App = () => {
                 </div>
             </Container>
             <AddBudgetModal show={showAddBudgetModal} handleClose={() => setShowAddBudgetModal(false)} />
+            <ConfirmationModal show={showConfirmationModal} handleClose={() => setShowConfirmationModal(false)} />
             <AddExpenseModal
                 show={showAddExpenseModal}
                 handleClose={() => setShowAddExpenseModal(false)}
