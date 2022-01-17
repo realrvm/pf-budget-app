@@ -5,14 +5,14 @@ import { formatToRoubles } from "../utils/utils";
 interface BudgetCardProps {
     name: string;
     amount: number;
-    max: number;
+    max?: number;
     onAddExpenseClick?: () => void;
     onViewExpenseClick?: () => void;
     hideButtons?: boolean;
 }
 
 const BudgetCard = ({ name, amount, max, onAddExpenseClick, onViewExpenseClick, hideButtons }: BudgetCardProps) => {
-    const getCardBGColor = (amount: number, max: number) => {
+    const getCardBGColor = (amount: number, max: number = 0) => {
         const [danger, light, opacity] = ["bg-danger", "bg-light", "bg-opacity-10"];
         return max && amount > max ? `${danger} ${opacity}` : light;
     };
@@ -35,17 +35,19 @@ const BudgetCard = ({ name, amount, max, onAddExpenseClick, onViewExpenseClick, 
                         {max && <span className="text-muted fs-6 ms-1">{formatToRoubles.format(max)}</span>}
                     </div>
                 </Card.Title>
-                <ProgressBar
-                    className="rounded-pill"
-                    variant={getPBVariant(amount, max)}
-                    min={0}
-                    max={max}
-                    now={amount}
-                ></ProgressBar>
+                {max && (
+                    <ProgressBar
+                        className="rounded-pill"
+                        variant={getPBVariant(amount, max)}
+                        min={0}
+                        max={max}
+                        now={amount}
+                    ></ProgressBar>
+                )}
                 {!hideButtons && (
                     <Stack direction="horizontal" gap={2} className="mt-4">
                         <Button variant="outline-primary" className="ms-auto" onClick={onAddExpenseClick}>
-                            Добавить
+                            Потратить
                         </Button>
                         <Button variant="outline-secondary" onClick={onViewExpenseClick}>
                             Подробнее

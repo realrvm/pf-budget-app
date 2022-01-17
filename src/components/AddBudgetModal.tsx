@@ -27,7 +27,7 @@ const AddBudgetModal = ({ show, handleClose }: AddModalProps) => {
         <Modal show={show} onHide={handleClose}>
             <Form onSubmit={handleSubmit}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Новая графа расходов</Modal.Title>
+                    <Modal.Title>Новая категория</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Group className="mb-3" controlId="name">
@@ -35,7 +35,7 @@ const AddBudgetModal = ({ show, handleClose }: AddModalProps) => {
                         <Form.Control ref={nameRef} type="text" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="maximum">
-                        <Form.Label>Максимальная сумма</Form.Label>
+                        <Form.Label>Максимальные затраты</Form.Label>
                         <Form.Control ref={maxRef} type="number" required min={0} step={10} />
                     </Form.Group>
                     <div className="d-flex justify-content-end">

@@ -24,7 +24,7 @@ const ViewExpenseModal = ({ currentId, handleClose }: ViewExpenseModalProps) => 
             <Modal.Header closeButton>
                 <Modal.Title>
                     <Stack direction="horizontal" gap={2}>
-                        <div>Вид затрат - {budget?.name}</div>
+                        <div>Категория - {budget?.name}</div>
                         {currentId !== DEFAULT_ID && (
                             <Button
                                 variant="outline-danger"
@@ -33,7 +33,7 @@ const ViewExpenseModal = ({ currentId, handleClose }: ViewExpenseModalProps) => 
                                     handleClose();
                                 }}
                             >
-                                Удалить карточку
+                                Удалить категорию
                             </Button>
                         )}
                     </Stack>

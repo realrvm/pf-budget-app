@@ -1,4 +1,4 @@
-import BudgetCard from "./BudgetCard";
+import { BudgetCard } from ".";
 import { useAppContext } from "../hooks/useAppContext";
 
 const TotalBudgetCard = () => {

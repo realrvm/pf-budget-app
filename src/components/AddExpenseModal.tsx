@@ -35,7 +35,7 @@ const AddExpenseModal = ({ show, handleClose, defaultCurrentId }: AddExpenseModa
         <Modal show={show} onHide={handleClose}>
             <Form onSubmit={handleSubmit}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Траты</Modal.Title>
+                    <Modal.Title>Расходы</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Group className="mb-3" controlId="description">
@@ -43,11 +43,11 @@ const AddExpenseModal = ({ show, handleClose, defaultCurrentId }: AddExpenseModa
                         <Form.Control ref={desctiptionRef} type="text" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="amount">
-                        <Form.Label>Количество</Form.Label>
+                        <Form.Label>Стоимость</Form.Label>
                         <Form.Control ref={amountRef} type="text" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="currentId">
-                        <Form.Label>Выбрать вид затрат</Form.Label>
+                        <Form.Label>Выбрать категорию расходов</Form.Label>
                         <Form.Select defaultValue={defaultCurrentId} ref={currentIdRef}>
                             <option>{DEFAULT_ID}</option>
                             {budgets.map((budget) => {
