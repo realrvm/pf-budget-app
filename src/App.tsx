@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BudgetCard, AddBudgetModal, AddExpenseModal, ViewExpenseModal } from "./components";
+import { BudgetCard, AddBudgetModal, AddExpenseModal, ViewExpenseModal, TotalBudgetCard } from "./components";
 import { useAppContext } from "./hooks/useAppContext";
 
 import { Container, Stack, Button } from "react-bootstrap";
@@ -51,6 +51,7 @@ const App = () => {
                             />
                         );
                     })}
+                    <TotalBudgetCard />
                 </div>
             </Container>
             <AddBudgetModal show={showAddBudgetModal} handleClose={() => setShowAddBudgetModal(false)} />

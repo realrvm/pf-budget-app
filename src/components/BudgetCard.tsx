@@ -1,4 +1,5 @@
 import { Card, Stack, ProgressBar, Button } from "react-bootstrap";
+
 import { formatToRoubles } from "../utils/utils";
 
 interface BudgetCardProps {
@@ -7,9 +8,10 @@ interface BudgetCardProps {
     max: number;
     onAddExpenseClick?: () => void;
     onViewExpenseClick?: () => void;
+    hideButtons?: boolean;
 }
 
-const BudgetCard = ({ name, amount, max, onAddExpenseClick, onViewExpenseClick }: BudgetCardProps) => {
+const BudgetCard = ({ name, amount, max, onAddExpenseClick, onViewExpenseClick, hideButtons }: BudgetCardProps) => {
     const getCardBGColor = (amount: number, max: number) => {
         const [danger, light, opacity] = ["bg-danger", "bg-light", "bg-opacity-10"];
         return max && amount > max ? `${danger} ${opacity}` : light;
@@ -40,14 +42,16 @@ const BudgetCard = ({ name, amount, max, onAddExpenseClick, onViewExpenseClick }
                     max={max}
                     now={amount}
                 ></ProgressBar>
-                <Stack direction="horizontal" gap={2} className="mt-4">
-                    <Button variant="outline-primary" className="ms-auto" onClick={onAddExpenseClick}>
-                        Добавить
-                    </Button>
-                    <Button variant="outline-secondary" onClick={onViewExpenseClick}>
-                        Подробнее
-                    </Button>
-                </Stack>
+                {!hideButtons && (
+                    <Stack direction="horizontal" gap={2} className="mt-4">
+                        <Button variant="outline-primary" className="ms-auto" onClick={onAddExpenseClick}>
+                            Добавить
+                        </Button>
+                        <Button variant="outline-secondary" onClick={onViewExpenseClick}>
+                            Подробнее
+                        </Button>
+                    </Stack>
+                )}
             </Card.Body>
         </Card>
     );
