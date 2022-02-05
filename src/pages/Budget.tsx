@@ -8,17 +8,17 @@ import {
     TotalBudgetCard,
     DefaultBudgetCard,
     ConfirmationModal,
-} from "./components";
+} from "../components";
 
-import { useAppContext } from "./hooks/useAppContext";
+import { useAppContext } from "../hooks/useAppContext";
 
 import { Container, Stack, Button } from "react-bootstrap";
 
-import { DEFAULT_ID } from "./utils/utils";
+import { DEFAULT_ID } from "../utils/utils";
 
-import "./App.css";
+import "./Budget.css";
 
-const App = () => {
+const Budget = () => {
     // модалки для меню
     const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
     const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
@@ -94,4 +94,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Budget;
