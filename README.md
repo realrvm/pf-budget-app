@@ -9,7 +9,7 @@
 ![localeStorage](https://img.shields.io/badge/store-localeStorage-brightgreen)
 ![React-Router-Dom](https://img.shields.io/badge/react--router-V6-blueviolet)
 
-[Готовые приложения на github-pages](https://realrvm.github.io/pf-budget-app/)
+[Готовые приложения на github-pages](https://realrvm.github.io/samples/)
 
 -   `Budget App` - приложение для контроля бюджета. Можно создавать отдельные категории затрат и контролировать расходы.
     Данные сохраняются после перезагрузки.

@@ -5,3 +5,6 @@ export { default as ViewExpenseModal } from "./ViewExpenseModal";
 export { default as TotalBudgetCard } from "./TotalBudgetCard";
 export { default as DefaultBudgetCard } from "./DefaultBudgetCard";
 export { default as ConfirmationModal } from "./ConfirmationModal";
+export { default as StepOne } from "./StepOne";
+export { default as StepTwo } from "./StepTwo";
+export { default as StepThree } from "./StepThree";
