@@ -8,7 +8,7 @@ import App from "./layout";
 ReactDOM.render(
     <React.StrictMode>
         <AppProvider>
-            <Router>
+            <Router basename="/samples">
                 <App />
             </Router>
         </AppProvider>

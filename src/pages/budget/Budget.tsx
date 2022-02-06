@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import {
     BudgetCard,
     AddBudgetModal,
@@ -8,13 +10,13 @@ import {
     TotalBudgetCard,
     DefaultBudgetCard,
     ConfirmationModal,
-} from "../components";
+} from "../../components";
 
-import { useAppContext } from "../hooks/useAppContext";
+import { useAppContext } from "../../hooks/useAppContext";
 
 import { Container, Stack, Button } from "react-bootstrap";
 
-import { DEFAULT_ID } from "../utils/utils";
+import { DEFAULT_ID } from "../../utils/utils";
 
 import "./Budget.css";
 
@@ -42,6 +44,7 @@ const Budget = () => {
     return (
         <>
             <Container className="my-4">
+                <Link to="/">Назад на главную</Link>
                 <Stack direction="horizontal" gap={2} className="mb-4">
                     <h1 className="me-auto">Бюджет</h1>
                     <Button variant="primary" onClick={() => setShowAddBudgetModal(true)}>

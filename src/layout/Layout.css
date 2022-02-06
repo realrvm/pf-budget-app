@@ -1,0 +1,13 @@
+.demo-menu__title {
+    text-align: center;
+}
+
+.demo-menu__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px;
+}
+
+.demo-menu__content .btn {
+    margin: 5px;
+}

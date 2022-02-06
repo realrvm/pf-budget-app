@@ -1,6 +1,6 @@
 {
-    "homepage": "https://rvm.github.io/pf-budget-app",
-    "name": "pf_budget_app",
+    "homepage": "https://rvm.github.io/samples",
+    "name": "samples",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
