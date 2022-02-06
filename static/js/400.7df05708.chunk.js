@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunksamples=self.webpackChunksamples||[]).push([[400],{400:function(e,n,s){s.r(n),s.d(n,{default:function(){return t}});var r=s(504),l=s(184),t=function(){return(0,l.jsxs)(l.Fragment,{children:[(0,l.jsx)("p",{className:"login-form__title",children:"login form"}),(0,l.jsx)(r.rU,{to:"/",children:"H\u0430\u0437\u0430\u0434 \u043d\u0430 \u0433\u043b\u0430\u0432\u043d\u0443\u044e"})]})}}}]);
-//# sourceMappingURL=400.7df05708.chunk.js.map
