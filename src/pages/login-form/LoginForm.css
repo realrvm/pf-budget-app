@@ -1,3 +1,83 @@
-.login-form__title {
+.login-form__back {
+    display: inline-block;
+    margin: 20px;
+    color: teal;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.login-form__back:hover {
+    text-decoration: underline;
+    color: teal;
+}
+
+.login-form__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: teal;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.login-form__wrapper > h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
     text-align: center;
+}
+
+.login-form__user-box {
+    position: relative;
+}
+
+.login-form__user-box > input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-form__user-box > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-form__user-box > input:focus ~ label,
+.login-form__user-box > input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+.login-form__btn {
+    transition: 0.3s;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    background-color: lightseagreen;
+    border-radius: 4px;
+    outline: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+}
+
+.login-form__btn:hover {
+    background-color: #03e9f4;
 }

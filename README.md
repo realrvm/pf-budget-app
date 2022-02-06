@@ -1,4 +1,4 @@
-## Бюджет. Демонстрация текущих навыков.
+## Демонстрация текущих навыков.
 
 ![Time](https://img.shields.io/badge/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%BE-%D0%B2%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%BE%D0%B5%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F-green)
 ![NDA](https://img.shields.io/badge/NDA-%D0%BD%D0%B5%20%D0%B3%D1%80%D0%BE%D0%B7%D0%B8%D1%82-blue)
@@ -8,7 +8,12 @@
 ![css](https://img.shields.io/badge/css-grid-red)
 ![localeStorage](https://img.shields.io/badge/store-localeStorage-brightgreen)
 
-[Готовое приложение на github-pages](https://realrvm.github.io/pf-budget-app/)
+[Готовые приложения на github-pages](https://realrvm.github.io/pf-budget-app/)
+
+-   `Budget App` - приложение для контроля бюджета. Можно создавать отдельные категории затрат и контролировать расходы.
+    Данные сохраняются после перезагрузки.
+
+-   `Login Form` - форма для регистрации. В разработке.
 
 1. React
 
