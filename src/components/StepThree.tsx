@@ -8,7 +8,7 @@ const StepThree = () => {
                     <label>Имя</label>
                 </div>
                 <div className="login-form__user-box">
-                    <input type="password" name="password" required />
+                    <input type="text" name="password" required />
                     <label>Фамилия</label>
                 </div>
                 <button type="submit" className="login-form__btn">
@@ -19,4 +19,4 @@ const StepThree = () => {
     );
 };
 
-export  default StepThree
+export default StepThree;
