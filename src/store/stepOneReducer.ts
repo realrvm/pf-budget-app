@@ -21,6 +21,5 @@ const stepOneSlice = createSlice({
     },
 });
 
-export type RootState = ReturnType<typeof stepOneSlice.reducer>;
 export default stepOneSlice.reducer;
 export const { stepOneAction } = stepOneSlice.actions;

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { RootState } from "../../../store/stepOneReducer";
+import { RootState } from "../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { stepOneAction } from "../../../store/stepOneReducer";
+import { useNavigate } from "react-router-dom";
 
 type FormData = {
     firstName: string;
@@ -10,9 +11,18 @@ type FormData = {
 };
 
 const StepOne = () => {
-    const { register, handleSubmit } = useForm<FormData>();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm<FormData>({
+        mode: "onBlur",
+    });
+
     const dispatch = useDispatch();
-    const { firstName, lastName } = useSelector((state: RootState) => state);
+    const navigate = useNavigate();
+    const { firstName, lastName } = useSelector((state: RootState) => state.stepOneReducer);
 
     const [firstNameValue, setFirstNameValue] = useState(firstName);
     const [lastNameValue, setLastNameValue] = useState(lastName);
@@ -26,7 +36,9 @@ const StepOne = () => {
     };
 
     const onSubmit = handleSubmit((data) => {
-        dispatch(stepOneAction({ lastName: lastNameValue, firstName: firstNameValue }));
+        dispatch(stepOneAction({ lastName: data.lastName, firstName: data.firstName }));
+        reset();
+        navigate("/login-form/steptwo");
     });
 
     return (
@@ -37,21 +49,33 @@ const StepOne = () => {
                     <input
                         type="text"
                         value={firstNameValue}
-                        {...register("firstName")}
+                        {...register("firstName", {
+                            required: "Поле обязательно для заполнения!",
+                            minLength: { value: 3, message: "Не менее 3х символов!" },
+                            pattern: { value: /^([^0-9]*)$/, message: "Никаких цифр в имени!" },
+                        })}
                         onChange={handleFirstName}
-                        required
                     />
                     <label>Имя</label>
+                    <div className="login-form__errors">
+                        {errors?.firstName && <p>{errors?.firstName?.message || "Ошибка!"}</p>}
+                    </div>
                 </div>
                 <div className="login-form__user-box">
                     <input
                         type="text"
                         value={lastNameValue}
-                        {...register("lastName")}
+                        {...register("lastName", {
+                            required: "Поле обязательно для заполнения!",
+                            minLength: { value: 3, message: "Не менее 3х символов!" },
+                            pattern: { value: /^([^0-9]*)$/, message: "Никаких цифр в фамилии!" },
+                        })}
                         onChange={handleLastName}
-                        required
                     />
                     <label>Фамилия</label>
+                    <div className="login-form__errors">
+                        {errors?.lastName && <p>{errors?.lastName?.message || "Ошибка!"}</p>}
+                    </div>
                 </div>
                 <button type="submit" className="login-form__btn">
                     Далее
