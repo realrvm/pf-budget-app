@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface StepTwoReducerTypes {
     mail: string;
+    phone: string;
 }
 
 const initialState = {
     mail: "",
+    phone: "",
 };
 
 const stepTwoSlice = createSlice({
@@ -13,7 +15,9 @@ const stepTwoSlice = createSlice({
     initialState,
     reducers: {
         stepTwoAction(state, action: PayloadAction<StepTwoReducerTypes>) {
+            console.log(action.payload);
             state.mail = action.payload.mail;
+            state.phone = action.payload.phone;
         },
     },
 });

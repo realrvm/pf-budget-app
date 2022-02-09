@@ -24,6 +24,13 @@
     border-radius: 10px;
 }
 
+@media screen and (min-width: 768px) {
+    .login-form__wrapper {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
 .login-form__wrapper > h2 {
     margin: 0 0 30px;
     padding: 0;
@@ -89,4 +96,39 @@
 
 .login-form__btn:hover {
     background-color: #03e9f4;
+}
+
+.login-form__btn + .login-form__btn {
+    margin-left: 20px;
+}
+
+.login-form__phone-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form__phone-header {
+    margin-top: 10px;
+}
+
+.login-form__phone-label {
+    color: #03e9f4;
+    font-size: 14px;
+    transform: translateY(-1px);
+}
+
+.login-form__phone-box > input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
 }
