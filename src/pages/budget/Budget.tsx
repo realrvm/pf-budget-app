@@ -10,7 +10,7 @@ import {
     TotalBudgetCard,
     DefaultBudgetCard,
     ConfirmationModal,
-} from "../../components";
+} from "./components";
 
 import { useAppContext } from "../../hooks/useAppContext";
 

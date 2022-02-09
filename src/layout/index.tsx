@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Layout } from "./Layout";
-import { StepOne, StepTwo, StepThree } from "../components/";
+import { StepOne, StepTwo, StepThree } from "../pages/login-form/components/";
 
 const Budget = React.lazy(() => import("../pages/budget/Budget"));
 const LoginForm = React.lazy(() => import("../pages/login-form/LoginForm"));
