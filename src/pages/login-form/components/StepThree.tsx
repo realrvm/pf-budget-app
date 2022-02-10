@@ -1,21 +1,14 @@
+import { Input } from ".";
+import { useForm } from "react-hook-form";
+
 const StepThree = () => {
+    const { control } = useForm();
+
     return (
-        <div className="login-form__wrapper">
-            <h2>Шаг 3</h2>
-            <form>
-                <div className="login-form__user-box">
-                    <input type="text" name="user" required />
-                    <label>Имя</label>
-                </div>
-                <div className="login-form__user-box">
-                    <input type="text" name="password" required />
-                    <label>Фамилия</label>
-                </div>
-                <button type="submit" className="login-form__btn">
-                    Далее
-                </button>
-            </form>
-        </div>
+        <form>
+            <Input name={`name`} control={control} />
+            <button type="submit">Загрузка</button>
+        </form>
     );
 };
 

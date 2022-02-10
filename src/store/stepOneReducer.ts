@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const stepOneSlice = createSlice({
-    name: "test",
+    name: "stepone",
     initialState,
     reducers: {
         stepOneAction(state, action: PayloadAction<StepOneReducerTypes>) {

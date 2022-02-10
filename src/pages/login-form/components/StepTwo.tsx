@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { RootState } from "../../../store/store";
+import { RootState } from "store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { stepTwoAction } from "../../../store/stepTwoReducer";
+import { stepTwoAction } from "store/stepTwoReducer";
 
-import { mailSchema } from "../../../utils/utils";
+import { mailSchema } from "utils/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { RootState } from "../../../store/store";
+import { RootState } from "store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { stepOneAction } from "../../../store/stepOneReducer";
+import { stepOneAction } from "store/stepOneReducer";
 import { useNavigate } from "react-router-dom";
 
 type FormData = {

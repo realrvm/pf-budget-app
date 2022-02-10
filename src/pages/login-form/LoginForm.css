@@ -132,3 +132,16 @@
 input[type="checkbox"] {
     margin-right: 10px;
 }
+
+.dropzone {
+    background: #eee;
+    display: grid;
+    place-items: center;
+    margin-top: 100px;
+    padding: 20px;
+    cursor: pointer;
+    height: 150px;
+    width: 400px;
+    border: 2px dashed #03e9f4;
+    outline: none;
+}
