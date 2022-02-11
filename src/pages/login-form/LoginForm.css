@@ -84,7 +84,7 @@
 
 .login-form__btn {
     transition: 0.3s;
-    margin-top: 40px;
+    margin-top: 20px;
     letter-spacing: 2px;
     background-color: lightseagreen;
     border-radius: 4px;
@@ -134,14 +134,46 @@ input[type="checkbox"] {
 }
 
 .dropzone {
-    background: #eee;
     display: grid;
     place-items: center;
-    margin-top: 100px;
     padding: 20px;
     cursor: pointer;
     height: 150px;
-    width: 400px;
+    margin: 0 auto;
+    width: 100%;
     border: 2px dashed #03e9f4;
+    background: #eee;
     outline: none;
+}
+
+.dropzoneReject {
+    border: 2px dashed red;
+}
+.dropzoneAccept {
+    border: 2px dashed green;
+}
+
+.dropzone__text {
+    color: teal;
+    font-size: 14px;
+}
+
+.dropzone__put {
+    margin-top: 10px;
+    display: flex;
+}
+.dropzone__put p {
+    font-size: 14px;
+    color: white;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.dropzone__put button {
+    color: red;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    height: 100%;
+    transform: translateY(-1px);
 }
