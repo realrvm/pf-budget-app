@@ -177,3 +177,15 @@ input[type="checkbox"] {
     height: 100%;
     transform: translateY(-1px);
 }
+
+.login-form__result-filehead {
+    color: #fff;
+    text-align: center;
+}
+
+.login-form__result-files {
+    margin-bottom: 0;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 14px;
+}

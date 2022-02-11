@@ -7,7 +7,7 @@ const StepThree = () => {
     const navigate = useNavigate();
 
     const onSubmit = () => {
-        navigate("/login/form/result");
+        navigate("/login-form/result");
     };
 
     const illBeBack = () => {

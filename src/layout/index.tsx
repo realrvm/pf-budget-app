@@ -3,10 +3,10 @@ import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Layout } from "./Layout";
-import { StepOne, StepTwo, StepThree } from "../pages/login-form/components/";
+import { StepOne, StepTwo, StepThree, Result } from "../pages/login-form/components/";
 
-const Budget = React.lazy(() => import("../pages/budget/Budget"));
-const LoginForm = React.lazy(() => import("../pages/login-form/LoginForm"));
+const Budget = React.lazy(() => import("pages/budget/Budget"));
+const LoginForm = React.lazy(() => import("pages/login-form/LoginForm"));
 
 const App = () => {
     return (
@@ -18,6 +18,7 @@ const App = () => {
                     <Route path="" element={<StepOne />} />
                     <Route path="steptwo" element={<StepTwo />} />
                     <Route path="stepthree" element={<StepThree />} />
+                    <Route path="result" element={<Result />} />
                 </Route>
             </Routes>
         </Suspense>
