@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksamples=self.webpackChunksamples||[]).push([[400],{6400:function(s,e,n){n.r(e),n.d(e,{default:function(){return t}});var r=n(3504),a=n(6871),c=n(184),t=function(){return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(r.rU,{className:"login-form__back",to:"/",children:"H\u0430\u0437\u0430\u0434 \u043d\u0430 \u0433\u043b\u0430\u0432\u043d\u0443\u044e"}),(0,c.jsx)(a.j3,{})]})}}}]);
+//# sourceMappingURL=400.3390099a.chunk.js.map
